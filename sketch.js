@@ -298,6 +298,16 @@ if (level === 1) {
     yVelocity = 0; // Stop any vertical movement after teleport
     jumpingRn = false;
     console.log(`Teleported to (${newX}, ${newY})`);
+    lostSound.play();
+  }
+  
+    // Check if touching yellow for level up
+  if ((rightR == 0 && rightG == 255 && rightB == 0) || (leftR == 0 && leftG == 255 && leftB == 0)) {
+    charX = newX;
+    charY = 650;
+    yVelocity = 0; // Stop any vertical movement after teleport
+    jumpingRn = false;
+    console.log("Level up!");
   }
   
     // Check if touching yellow for level up
@@ -316,11 +326,13 @@ if (level === 1) {
     charY = 350;
     level = 1;
     console.log("Restart!");
+    lostSound.play();
     yVelocity = 0; // Stop any vertical movement after teleport
     jumpingRn = false;
   
   }
 }
+  
 } else if (level === 2){
   if ((rightR === r && rightG === g && rightB === b) || (leftR === r && leftG === g && leftB === b)) {
     charX = newX;
@@ -328,6 +340,7 @@ if (level === 1) {
     yVelocity = 0; // Stop any vertical movement after teleport
     jumpingRn = false;
     console.log(`Teleported to (${newX}, ${newY})`);
+    lostSound.play();
   }
   
    if ((rightR == 0 && rightG == 255 && rightB == 0) || (leftR == 0 && leftG == 255 && leftB == 0)) {
@@ -356,6 +369,19 @@ if (level === 1) {
     console.log("Level up!");
   }
   
+  if (!isCrouching) {
+  if ((rightR == 200 && rightG == 200 && rightB == 100) || (leftR == 200 && leftG == 200 && leftB == 100)) {
+    charX = newX;
+    charY = 350;
+    level = 1;
+    console.log("Restart!");
+    lostSound.play();
+    yVelocity = 0; // Stop any vertical movement after teleport
+    jumpingRn = false;
+  
+  }
+}
+  
 } else if (level === 3){
   if ((rightR === r && rightG === g && rightB === b) || (leftR === r && leftG === g && leftB === b)) {
     charX = newX;
@@ -363,6 +389,7 @@ if (level === 1) {
     yVelocity = 0; // Stop any vertical movement after teleport
     jumpingRn = false;
     console.log(`Teleported to (${newX}, ${newY})`);
+    lostSound.play();
     
   }
   
@@ -392,6 +419,19 @@ if (level === 1) {
     console.log("Done!");
     wonSound.play();
   }
+  
+  if (!isCrouching) {
+  if ((rightR == 200 && rightG == 200 && rightB == 100) || (leftR == 200 && leftG == 200 && leftB == 100)) {
+    charX = newX;
+    charY = 350;
+    level = 1;
+    console.log("Restart!");
+    lostSound.play();
+    yVelocity = 0; // Stop any vertical movement after teleport
+    jumpingRn = false;
+  
+  }
+}
   
 } 
   
