@@ -20,17 +20,22 @@ let currentBackground;
 
 let background1;
 let background2;
-
 let evilX = 550;
 let evilY;
 let evilSpeed = 5;
 let evilDirection = -1;
+
+let lostSound;
+let wonSound; 
 
 function preload() {
   background1 = loadImage("house.png");
   background2 = loadImage("house2.png");
   background3 = loadImage("house3.png");
   background4 = loadImage("gameover.png");
+  
+  lostSound = loadSound("lost.mp3");
+  wonSound = loadSound("won.mp3");
 }
 
 function setup() {
@@ -313,6 +318,7 @@ if (level === 1) {
     console.log("Restart!");
     yVelocity = 0; // Stop any vertical movement after teleport
     jumpingRn = false;
+  
   }
 }
 } else if (level === 2){
@@ -357,6 +363,7 @@ if (level === 1) {
     yVelocity = 0; // Stop any vertical movement after teleport
     jumpingRn = false;
     console.log(`Teleported to (${newX}, ${newY})`);
+    
   }
   
    if ((rightR == 0 && rightG == 255 && rightB == 0) || (leftR == 0 && leftG == 255 && leftB == 0)) {
@@ -383,6 +390,7 @@ if (level === 1) {
     jumpingRn = false;
     level = 4;
     console.log("Done!");
+    wonSound.play();
   }
   
 } 
