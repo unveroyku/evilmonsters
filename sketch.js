@@ -84,6 +84,22 @@ function draw() {
   }
 
 
+// Constrain movement based on the current level
+if (level === 1) {
+  if (charX < 150) {
+    charX = 150;
+  } else if (charX > 570) {
+    charX = 570;
+  }
+} else if (level === 2 || level === 3) {
+  if (charX < 70) {
+    charX = 70;
+  } else if (charX > 700) {
+    charX = 700;
+  }
+}
+
+
   // Draw the evil enemy
   noStroke();
   fill(200, 200, 100);
